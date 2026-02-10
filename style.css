@@ -1,0 +1,182 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+/* LAYOUT */
+.app-layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* BASE SIDEBAR STYLES*/
+.sidebar {
+  width: 240px;
+  background: #111827;
+  color: white;
+  padding: 16px;
+  transition: width 0.3s ease; /* Remove transform here so it stays on screen */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Keeps hidden buttons from overflowing */
+}
+
+/* New Collapsed State (The "Hidden" look) */
+.app-layout.sidebar-hidden .sidebar {
+  width: 70px; /* Small enough for just the button */
+}
+
+/* Hide the Logo and Nav Buttons when collapsed */
+.app-layout.sidebar-hidden .logo,
+.app-layout.sidebar-hidden .nav-btn {
+  display: none;
+}
+
+/* Ensure the button stays left-aligned and visible */
+.hamburger {
+  cursor: pointer;
+  background: #111827;
+  border: 1px solid #111827;
+  padding: 8px;
+  border-radius: 2px;
+  width: fit-content;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #ccc;
+
+}
+
+/* SIDEBAR BUTTONS */
+.nav-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 6px;
+  background: none;
+  border: none;
+  color: #d1d5db;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nav-btn.active {
+  background: #1f2937;
+  color: white;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+/* TOPBAR */
+.topbar {
+  margin-bottom: 20px;
+}
+
+/* PAGES */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* SPREADSHEET */
+.sheet {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sheet th,
+.sheet td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  min-width: 120px;
+}
+
+.sheet td[contenteditable="true"] {
+  background: #f9fafb;
+}
+
+.sheet td[contenteditable="true"]:focus {
+  outline: 2px solid #2563eb;
+  background: white;
+}
+
+/* 1. The background overlay (dimmer) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures it stays above the sidebar */
+}
+
+/* 2. The actual form box */
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Smooth entry animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button styling to match your CRM style */
+.add-btn {
+  padding: 5px 12px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 4px;
+}
+
+.tracker-item {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideUp 0.3s ease-out;
+}
+
+.delete-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.delete-btn:hover {
+    background: #cc0000;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
