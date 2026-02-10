@@ -42,12 +42,11 @@ body {
   background: #111827;
   border: 1px solid #111827;
   padding: 8px;
-  border-radius: 2px;
+  border-radius: 10px;
   width: fit-content;
   margin-bottom: 20px;
   font-size: 20px;
   color: #ccc;
-
 }
 
 /* SIDEBAR BUTTONS */
@@ -67,6 +66,43 @@ body {
   background: #1f2937;
   color: white;
 }
+
+.sidebar-footer {
+    justify-content: center;
+    margin-top: auto; /* This magic line pushes it down */
+    padding:10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-logout {
+    display: block;
+    align-items: left;
+    justify-content: center;
+    gap:0px;
+    background: #111827;
+    border: none;
+    color: #8a8d91; /* Matches your other nav buttons */
+    cursor: pointer;
+    width: fit-content;
+    padding: 0px;
+    transition: 0.3s;
+}
+
+.logout-style:hover {
+    color: #ff4d4d; /* Changes to red on hover */
+}
+
+/* Styles the SVG icon size and color */
+.logout-icon {
+    background: transparent;
+    align-items: center;
+    margin: 0 auto;
+    width: 20px;
+    height: 20px;
+    fill: white;
+    display: block;
+}
+
 
 /* MAIN CONTENT */
 .main-content {
