@@ -27,3 +27,37 @@
   /* This adds 15px of space above and below the text */
   padding: 15px 10px;
 }
+
+/* SPREADSHEET */
+.sheet {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sheet th,
+.sheet td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  min-width: 120px;
+}
+
+.sheet td[contenteditable="true"] {
+  background: #f9fafb;
+}
+
+.sheet td[contenteditable="true"]:focus {
+  outline: 2px solid #2563eb;
+  background: white;
+}
+
+.tracker-item {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideUp 0.3s ease-out;
+}

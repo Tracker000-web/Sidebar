@@ -126,6 +126,12 @@ app.post('/api/tracker_entry', (req, res) => {
 // -------------------
 io.on('connection', socket => {
     console.log('User connected:', socket.id);
+
+    socket.on('registerRole', role => {
+        socket.join(role); // "admin" or "user"
+        console.log(`Socket ${socket.id} joined ${role}`);
+    });
 });
+
 
 server.listen(3000, () => console.log('Server running on http://localhost:3000'));
