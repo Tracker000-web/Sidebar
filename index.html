@@ -44,7 +44,7 @@
     <!-- DASHBOARD -->
     <section class="page active" data-page="dashboard">
       <h1>Dashboard</h1>
-      <p>Welcome to your CRM.</p>
+      <p>Welcome to your dashboard</p>
     </section>
 
     <!-- USERS -->
@@ -58,23 +58,67 @@
       <h1>Trackers</h1>
 
       <div id="loadingTrackers" style="display:none;">Loading Trackers...</div>
+
       <button id="addBtn" class="secondary-btn" onclick="toggleModal()">+</button>
-        <div id="trackerList" style="margin-top: 20px;"></div>
-        <div id="trackerModal" class="modal-overlay" style="display: none;">
-         
-            <div class="modal-content">
-                <h3>Add New Manager</h3>
-             
-                <form onsubmit="saveTracker(event)">
-                    <input type="text" id="trackerInput" style="width: 100%; margin-bottom: 10px;"><br>
-                    
-                    <button type="submit">Save</button>
-                    <button type="button" onclick="toggleModal()">Cancel</button>
-                </form>
+      <hr>
+
+      <div id="trackerList" style="margin-top: 20px;"></div>
+
+ <!-- ADD TRACKER MODAL -->
+      <div id="trackerModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content" style="max-width: 900px; width: 90%;">
+          <h3>Add New Manager</h3>
+          <form onsubmit="saveTracker(event)">
+            <input type="text" id="trackerInput" style="width: 100%; margin-bottom: 10px;" placeholder="Enter Manager Name">
+            
+            <p>Spreadsheet Template:</p>
+            <div id="trackerTemplateContainer">
+              <table class="sheet" style="width:100%; border-collapse: collapse; margin-bottom:10px;">
+                <thead>
+                  <tr style="background:#eee;">
+                    <th>#</th>
+                    <th>Phone</th>
+                    <th>No Answer</th>
+                    <th>Voicemail</th>
+                    <th>Left Message</th>
+                    <th>Call Backs</th>
+                    <th>Appointments</th>
+                    <th>Preset</th>
+                    <th>Confirmed Preset</th>
+                    <th>Status</th>
+                    <th>Comment</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td contenteditable="true">09123456789</td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td>
+                      <select>
+                        <option value="">Select Status</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Failed">Failed</option>
+                      </select>
+                    </td>
+                    <td contenteditable="true"></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+
+            <button type="submit">Push to Users</button>
+            <button type="button" onclick="toggleModal()">Cancel</button>
+          </form>
         </div>
-        <hr>
-    </section>
+      </div>
 
     <!-- LOGS -->
     <section class="page" data-page="logs">
@@ -108,7 +152,7 @@
 
   </main>
 </div>
-
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
