@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 # MySQL Connection Configuration
 db_config = {
-    'user': 'your_user',
-    'password': 'your_password',
     'host': 'localhost',
-    'database': 'your_crm_db'
+    'user': 'root',
+    'password': 'Benito1997!',
+    'database': 'dashbox_crm_db'
 }
 
 def get_db_connection():

@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/Tracker000-web/Sidebar/issues"
   },
-  "homepage": "https://github.com/Tracker000-web/Sidebar#readme"
+  "homepage": "https://github.com/Tracker000-web/Sidebar#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mysql2": "^3.17.0"
+  }
 }
