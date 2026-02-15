@@ -1,4 +1,4 @@
 {
     "explorer.openEditors.sortOrder": "fullPath",
-    "explorer.sortOrder": "modified"
+    "explorer.sortOrder": "type"
 }

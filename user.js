@@ -4,6 +4,9 @@
 
 const socket = io("http://localhost:3000");
 const userName = localStorage.getItem("user_name") || prompt("Enter your name");
+const appLayout = document.querySelector('.app-layout');
+const navButtons = document.querySelectorAll(".nav-btn");
+const pages = document.querySelectorAll(".page");
 
 // Register as USER role
 socket.emit("registerRole", "user");
@@ -11,6 +14,22 @@ socket.emit("registerRole", "user");
 // Containers
 const trackerList = document.getElementById("userTrackerList");
 const trackerSheetContainer = document.getElementById("trackerSheetContainer");
+
+// -------------------
+// SIDEBAR NAVIGATION
+// -------------------
+document.getElementById('menu-toggle').addEventListener('click', () => {
+    appLayout.classList.toggle("sidebar-hidden");
+});
+
+navButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const target = btn.dataset.target;
+        pages.forEach(p => p.classList.toggle("active", p.dataset.page === target));
+        navButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+    });
+});
 
 // ==========================
 // LOAD EXISTING TRACKERS
